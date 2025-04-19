@@ -6,11 +6,19 @@ authors = [
     {name = "dcazrael",email = "msachdev@live.de"}
 ]
 readme = "README.md"
-requires-python = ">=3.13"
+requires-python = ">=3.8.1,<4.0.0"
 dependencies = [
+    "textual (>=3.1.0,<4.0.0)"
 ]
+
+[project.scripts]
+dev = "command_dashboard.main:main"
 
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.5"
+
