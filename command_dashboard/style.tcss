@@ -8,7 +8,22 @@
 
 Button {
   margin: 1 0;
+  padding: 1 2;
+  width: 100%;
+  border: round $accent;
+  background: $panel;
+  text-style: bold;
 }
+
+Button:hover {
+  background: $accent-darken-1;
+}
+
+Button.-active {
+  background: $boost;
+  text-style: bold;
+}
+
 
 
 #main-panel {
