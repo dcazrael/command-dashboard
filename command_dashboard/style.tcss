@@ -1,0 +1,17 @@
+#sidebar {
+  background: $panel;
+  border: solid $accent;
+  padding: 1 2;
+  width: 30%;
+  height: 100%;
+}
+
+Button {
+  margin: 1 0;
+}
+
+
+#main-panel {
+  background: $surface;
+  border: solid $primary;
+}
