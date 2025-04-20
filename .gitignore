@@ -1,0 +1,22 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Poetry virtualenvs (if accidentally placed inside)
+.env
+.venv
+
+# macOS + system files
+.DS_Store
+
+# IDE files
+.idea/
+.vscode/
+
+# Test output
+htmlcov/
+*.cover
+
+# Logs
+*.log
