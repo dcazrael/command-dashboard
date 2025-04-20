@@ -1,12 +1,6 @@
-from textual.widgets import Button
-from rich.text import Text
-from textual import log
-from command_dashboard.utils.utilities import replace_umlauts
+# widgets/category_button.py
+from command_dashboard.widgets.nav_button import NavButton
 
-
-class CategoryButton(Button):
-    def __init__(self, category: str, icon: str = ""):
-        category_id = replace_umlauts(category).replace(" ", "_").replace("/", "_")
-        self.category = category
-        label = f"{icon} {category.capitalize()}" if icon else category.capitalize()
-        super().__init__(label = label, id=f"btn-{category_id}")
+class CategoryButton(NavButton):
+    def __init__(self, category: str):
+        super().__init__(key=category, level="category", category=category)
