@@ -66,7 +66,7 @@ To display icons correctly:
 ```plaintext
 command-dashboard/
 ├── assets/                 # Assets like fonts and images
-├── src/      # Main application code
+├── src/                    # Main application code
 │   ├── commands/           # Command modules per category
 │   ├── utils/              # Utility functions
 │   ├── views/              # UI components
