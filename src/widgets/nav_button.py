@@ -1,5 +1,4 @@
 from textual.widgets import Button
-
 from src.utils.utilities import replace_umlauts
 
 

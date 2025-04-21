@@ -1,5 +1,4 @@
 # widgets/subcategory_button.py
-from textual import log
 
 from src.widgets.nav_button import NavButton
 
