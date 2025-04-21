@@ -1,7 +1,7 @@
 import importlib
 import os
 from pathlib import Path
-from command_dashboard.utils.icon_map import get_icon_for_category
+from src.utils.icon_map import get_icon_for_category
 
 COMMANDS_PATH = Path(__file__).parent.parent / "commands"
 

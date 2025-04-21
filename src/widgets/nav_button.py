@@ -1,6 +1,6 @@
 from textual.widgets import Button
 
-from command_dashboard.utils.utilities import replace_umlauts
+from src.utils.utilities import replace_umlauts
 
 
 class NavButton(Button):

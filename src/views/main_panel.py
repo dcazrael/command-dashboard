@@ -1,6 +1,6 @@
-from command_dashboard.utils.load_commands import load_commands
-from command_dashboard.widgets.command_button import CommandButton
-from command_dashboard.widgets.subcategory_button import SubcategoryButton
+from src.utils.load_commands import load_commands
+from src.widgets.command_button import CommandButton
+from src.widgets.subcategory_button import SubcategoryButton
 
 
 def get_subcategory_buttons(category: str) -> list[SubcategoryButton]:

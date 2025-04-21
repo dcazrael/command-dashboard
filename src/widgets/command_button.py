@@ -1,5 +1,5 @@
 # widgets/command_button.py
-from command_dashboard.widgets.nav_button import NavButton
+from src.widgets.nav_button import NavButton
 
 class CommandButton(NavButton):
     def __init__(self, command_name: str, category: str, subcategory: str):

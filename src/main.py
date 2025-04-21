@@ -2,14 +2,14 @@ from textual.app import App, ComposeResult
 from textual.containers import Horizontal, Vertical, Grid, Container, VerticalScroll, HorizontalScroll
 from textual.widgets import Header, Static, Footer, Button, TextArea
 
-from command_dashboard.utils.load_commands import load_commands
-from command_dashboard.themes.theme import darkwave_theme
-from command_dashboard.views.sidebar import get_category_buttons
-from command_dashboard.views.main_panel import get_subcategory_buttons, get_command_buttons
-from command_dashboard.widgets.category_button import CategoryButton
-from command_dashboard.widgets.command_button import CommandButton
-from command_dashboard.widgets.subcategory_button import SubcategoryButton
-from textual import log
+from src.utils.load_commands import load_commands
+from src.themes.theme import darkwave_theme
+from textual.theme import BUILTIN_THEMES
+from src.views.sidebar import get_category_buttons
+from src.views.main_panel import get_subcategory_buttons, get_command_buttons
+from src.widgets.category_button import CategoryButton
+from src.widgets.command_button import CommandButton
+from src.widgets.subcategory_button import SubcategoryButton
 
 
 class CommandDashboard(App):
@@ -52,7 +52,8 @@ class CommandDashboard(App):
 
     def on_mount(self) -> None:
         self.register_theme(darkwave_theme)
-        self.theme = "darkwave"
+        self.register_theme(BUILTIN_THEMES["dracula"])
+        self.theme = "dracula"
 
         navigation = self.query_one("#navigation")
         navigation.border_title = "navigation".upper()

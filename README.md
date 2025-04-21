@@ -44,7 +44,7 @@ resource for developers.
 3. **Run the Application**
 
    ```bash
-   poetry run python -m command_dashboard
+   poetry run python -m src
    ```
 
 ---

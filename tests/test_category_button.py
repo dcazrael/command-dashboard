@@ -1,4 +1,4 @@
-from command_dashboard.widgets.category_button import CategoryButton
+from src.widgets.category_button import CategoryButton
 
 
 def test_category_button_text_and_id():

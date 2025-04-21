@@ -3,8 +3,8 @@ from textual.app import ComposeResult
 from textual.containers import Horizontal
 from textual.widgets import Label
 
-from command_dashboard.utils.icon_map import ICON_MAP
-from command_dashboard.widgets.nav_button import NavButton
+from src.utils.icon_map import ICON_MAP
+from src.widgets.nav_button import NavButton
 
 class CategoryButton(NavButton):
     def __init__(self, category: str):
