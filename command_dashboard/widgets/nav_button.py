@@ -14,4 +14,4 @@ class NavButton(Button):
         slug = "-".join(filter(None, parts))
         slug = replace_umlauts(slug).replace(" ", "-").replace("/", "-")
 
-        super().__init__(label=key.capitalize(), classes=f"{level}-button")
+        super().__init__(label=key, classes=f"{level}-button button")
