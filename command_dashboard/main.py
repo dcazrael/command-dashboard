@@ -2,7 +2,7 @@ from textual.app import App, ComposeResult
 from textual.containers import Horizontal, Vertical, Grid, Container, VerticalScroll, HorizontalScroll
 from textual.widgets import Header, Static, Footer, Button, TextArea
 
-from command_dashboard.commands import COMMANDS
+from command_dashboard.utils.load_commands import load_commands
 from command_dashboard.themes.theme import darkwave_theme
 from command_dashboard.views.sidebar import get_category_buttons
 from command_dashboard.views.main_panel import get_subcategory_buttons, get_command_buttons
@@ -16,9 +16,9 @@ class CommandDashboard(App):
     CSS_PATH = "style.tcss"
 
     BINDINGS = [
-        ("n", "focus_navigation", "Navigation"),
-        ("s", "focus_sub_navigation", "Subcategories"),
-        ("c", "focus_output", "Commands"),
+        ("n", "focus_navigation", "Focus Navigation"),
+        ("s", "focus_sub_navigation", "Focus Subcategories"),
+        ("c", "focus_output", "Focus Commands"),
         ("y", "copy_command", "Copy command")
     ]
 
@@ -87,7 +87,7 @@ class CommandDashboard(App):
         subcategories = get_subcategory_buttons(category)
         sub_nav_panel = self.query_one('#sub-navigation')
         sub_nav_panel.border_title = category.upper()
-        sub_nav_panel.border_subtitle = "s"
+        sub_nav_panel.border_subtitle = "scroll with shift+mousewheel / s"
         for child in sub_nav_panel.children:
             child.remove()
         sub_nav_panel.mount(*subcategories)
@@ -112,10 +112,10 @@ class CommandDashboard(App):
             self.action_display_subcategories(button.category)
 
         elif isinstance(button, CommandButton):
-            # You may later want to add: show command in output panel here
-            command_data = COMMANDS[button.category][button.subcategory][button.command_name]
-            self.update_text_area('#output-command', command_data["command"])
-            self.update_text_area("#output-explain", command_data["explanation"])
+            command_data = load_commands(button.category).get(button.subcategory, {}).get(button.command_name)
+            if command_data:
+                self.update_text_area('#output-command', command_data["command"])
+                self.update_text_area('#output-explain', command_data["explanation"])
 
         elif isinstance(button, SubcategoryButton):
             self.action_display_commands(button.category, button.key)

@@ -6,11 +6,13 @@
     background: $background;
 }
 
+#navigation, #sub-navigation, #command-navigation {
+    scrollbar-size: 0 0;
+}
+
 #navigation {
     padding: 1;
     border: round $accent;
-    layout: grid;
-    grid-size: 2;
     min-width: 10;
 }
 
@@ -23,10 +25,6 @@
 #sub-navigation {
     border: round $accent;
     min-height: 30;
-}
-
-.sub-nav-rows {
-    width: 90%;
 }
 
 #command-panel {
@@ -51,15 +49,19 @@
 }
 
 .button {
-    width: 90%;
+    width: initial;
     color: $foreground;
     height: 3;
-    border: round $primary;
+    border: round $secondary;
     background: transparent;
 }
 
+
+.category-button {
+    align: center middle;
+}
+
 .subcategory-button {
-    width: initial;
     height: 3;
 }
 
@@ -73,5 +75,16 @@ TextArea {
 
 #sub-navigation:focus,
 #command-navigation:focus {
+    border: double $accent;
+}
+
+.category-button:focus .label {
+    color: $accent;
+}
+
+.button:focus {
+    background: transparent;
+    color: $accent;
+    text-style: none;
     border: double $accent;
 }
