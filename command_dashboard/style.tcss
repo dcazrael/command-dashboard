@@ -1,32 +1,90 @@
-#sidebar {
-  background: $panel;
-  border: solid $accent;
-  padding: 1 2;
-  width: 30%;
-  height: 100%;
+#app-grid {
+    layout: grid;
+    grid-size: 2;
+    grid-columns: 1fr 3fr;
+    height: 100%;
+    background: $background;
 }
 
-Button {
-  margin: 1 0;
-  padding: 1 2;
-  width: 100%;
-  border: round $accent;
-  background: $panel;
-  text-style: bold;
+#navigation, #sub-navigation, #command-navigation {
+    scrollbar-size: 0 0;
 }
 
-Button:hover {
-  background: $accent-darken-1;
+#navigation {
+    padding: 1;
+    border: round $accent;
+    min-width: 10;
 }
-
-Button.-active {
-  background: $boost;
-  text-style: bold;
-}
-
-
 
 #main-panel {
-  background: $surface;
-  border: solid $primary;
+    layout: grid;
+    grid-size: 1 2;
+    grid-rows: 6 4fr;
+}
+
+#sub-navigation {
+    border: round $accent;
+    min-height: 30;
+}
+
+#command-panel {
+    layout: grid;
+    row-span: 3;
+    grid-size: 2;
+    grid-gutter: 1 2;
+}
+
+#command-navigation {
+    padding: 1;
+    border: round $accent;
+}
+
+#output-panel {
+    layout: vertical;
+}
+
+.output-container {
+    color: $foreground;
+    border: round $accent;
+}
+
+.button {
+    width: initial;
+    color: $foreground;
+    height: 3;
+    border: round $secondary;
+    background: transparent;
+}
+
+
+.category-button {
+    align: center middle;
+}
+
+.subcategory-button {
+    height: 3;
+}
+
+TextArea {
+    background: $panel 70%;
+}
+
+#navigation:focus {
+    border: double $primary;
+}
+
+#sub-navigation:focus,
+#command-navigation:focus {
+    border: double $accent;
+}
+
+.category-button:focus .label {
+    color: $accent;
+}
+
+.button:focus {
+    background: transparent;
+    color: $accent;
+    text-style: none;
+    border: double $accent;
 }
