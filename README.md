@@ -4,8 +4,8 @@ A terminal-based command reference tool built with [Textual](https://textual.tex
 This dashboard provides categorized command snippets for various technologies, aiming to be a quick-access 
 resource for developers.
 
-![Screenshot](assets/screenshot_1.png)
-![Screenshot](assets/screenshot_2.png)
+![Screenshot](assets/screenshots/screenshot_1.png)
+![Screenshot](assets/screenshots/screenshot_2.png)
 
 ---
 
