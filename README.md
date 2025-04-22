@@ -81,7 +81,7 @@ command-dashboard/
 
 ## 🧩 Adding New Command Categories
 
-1. **Create a New Module**: Add a new `.py` file in `command_dashboard/commands/` (e.g., `docker.py`).
+1. **Create a New Module**: Add a new `.py` file in `src/commands/` (e.g., `docker.py`).
 2. **Define Commands**: Structure your commands as a nested dictionary:
 
    ```python
@@ -103,9 +103,51 @@ command-dashboard/
 
 ## 📋 Keyboard Shortcuts
 
-- **Navigate Categories**: Use arrow keys or assigned shortcuts.
-- **Select Command**: Press `Enter` to view command details.
-- **Copy Command**: Press `c` to copy the command to the clipboard.
+- **Cycle Focus**: `Tab` to cycle through panels
+- **Jump to Panel**: Use displayed shortcut keys
+- **Select Command**: Press `Enter` to view command details
+- **Copy Command**: Press `y` to copy the command to the clipboard
+
+---
+
+## 🧪 Running Tests
+
+This project uses `pytest` for testing.
+
+### Requirements
+
+Make sure the development dependencies are installed:
+
+```bash
+poetry install --with dev
+```
+
+### Run All Tests
+
+```bash
+poetry run pytest
+```
+
+### Run Specific Test File
+
+```bash
+poetry run pytest tests/test_main.py
+```
+
+### Example Test Structure
+
+```python
+import pytest
+from src.main import CommandDashboard
+
+@pytest.mark.asyncio
+async def test_app_starts():
+    app = CommandDashboard()
+    async with app.run_test() as pilot:
+        assert app.title == "CommandDashboard"
+```
+
+You can find additional tests under the `tests/` directory.
 
 ---
 
