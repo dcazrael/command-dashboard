@@ -1,3 +1,5 @@
+# utils/load_commands.py
+import sys
 import importlib
 from pathlib import Path
 
@@ -11,9 +13,12 @@ def list_categories() -> list[str]:
     ]
 
 def load_commands(category:str) -> dict:
+    module_path = f"src.commands.{category}"
+
     try:
-        module = importlib.import_module(f"src.commands.{category}")
-        return module.commands
+        module = importlib.import_module(module_path)
+        return getattr(module, "commands", {})
     except Exception as e:
-        print(f"[ERROR] Failed to load commands from '{category}: {e}")
+        print(f"[ERROR] Failed to load commands from '{category}: {e}'")
         return {}
+

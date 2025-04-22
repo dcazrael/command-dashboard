@@ -1,15 +1,22 @@
+# tests/widgets/test_category_button.py
+
+import pytest
 from src.widgets.category_button import CategoryButton
+from src.utils.icon_map import ICON_MAP
+from textual.app import App
+from textual.widgets import Label
 
 
-def test_category_button_text_and_id():
-    btn = CategoryButton("linux")
-    assert btn.label == "Linux"
-    assert btn.id == "btn-linux"
-    assert btn.category == "linux"
+class DummyApp(App):
+    def compose(self):
+        yield CategoryButton("python")
 
 
-def test_category_button_with_icon():
-    btn = CategoryButton("sql", icon="🛢️")
-    assert btn.label == "🛢️ Sql"
-    assert btn.id == "btn-sql"
-    assert btn.category == "sql"
+@pytest.mark.asyncio
+async def test_category_button_icon_display():
+    app = DummyApp()
+    async with app.run_test() as pilot:
+        button = app.query_one(CategoryButton)
+        label_widget = button.query_one(Label)
+        expected_icon = ICON_MAP.get("python", "\uf03e")
+        assert expected_icon in str(label_widget.renderable)

@@ -1,3 +1,4 @@
+# utils/icon_map.py
 ICON_MAP = {
     "bash": "\ue795",
     "powershell": "\ue86c",
