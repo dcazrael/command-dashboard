@@ -1,6 +1,8 @@
+# main.py
 from textual.app import App, ComposeResult
-from textual.containers import Horizontal, Vertical, Grid, Container, VerticalScroll, HorizontalScroll
-from textual.widgets import Header, Static, Footer, Button, TextArea
+from textual.containers import Vertical, Container, VerticalScroll, HorizontalScroll
+from textual.widgets import Header, Footer, Button, TextArea
+import pyperclip
 
 from src.utils.load_commands import load_commands
 from src.themes.theme import darkwave_theme
@@ -10,6 +12,8 @@ from src.views.main_panel import get_subcategory_buttons, get_command_buttons
 from src.widgets.category_button import CategoryButton
 from src.widgets.command_button import CommandButton
 from src.widgets.subcategory_button import SubcategoryButton
+
+from textual import log
 
 
 class CommandDashboard(App):
@@ -81,7 +85,7 @@ class CommandDashboard(App):
     def action_copy_command(self) -> None:
         area = self.query_one("#output-command", TextArea)
         text_to_copy = area.text
-        self.copy_to_clipboard(text_to_copy)
+        pyperclip.copy(text_to_copy)
         self.notify("Copied command to clipboard")
 
     def action_display_subcategories(self, category: str) -> None:

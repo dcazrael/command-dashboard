@@ -6,14 +6,15 @@ authors = [
     {name = "dcazrael",email = "msachdev@live.de"}
 ]
 readme = "README.md"
-requires-python = ">=3.8.1,<4.0.0"
+requires-python = ">=3.9,<4.0.0"
 dependencies = [
     "textual (>=3.1.0,<4.0.0)",
-    "textual-dev (>=1.7.0,<2.0.0)"
+    "textual-dev (>=1.7.0,<2.0.0)",
+    "pyperclip (>=1.9.0,<2.0.0)"
 ]
 
 [project.scripts]
-dev = "command_dashboard.main:main"
+dev = "src.main:main"
 
 
 [build-system]
@@ -22,4 +23,8 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.3.5"
+pytest-asyncio = "^0.26.0"
 
+[tool.poetry]
+
+packages = [{ include = "src", from = "." }]

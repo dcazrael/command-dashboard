@@ -1,3 +1,4 @@
+# widgets/nav_button.py
 from textual.widgets import Button
 from src.utils.utilities import replace_umlauts
 
