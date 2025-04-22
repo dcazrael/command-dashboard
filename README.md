@@ -22,7 +22,7 @@ resource for developers.
 
 ### Prerequisites
 
-- Python 3.8+
+- Python 3.9+
 - [Poetry](https://python-poetry.org/)
 - A terminal that supports Nerd Fonts (e.g., [Kitty](https://sw.kovidgoyal.net/kitty/))
 
